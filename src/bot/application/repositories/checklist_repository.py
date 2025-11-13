@@ -45,6 +45,24 @@ class CheckListRepository:
         checklist["_id"] = str(checklist["_id"])
         return checklist
 
+    async def get_checklists_by_date_range(self, start_date: datetime, end_date: datetime) -> list:
+        """
+        Получает все чек-листы за промежуток времени
+        start_date: начальная дата
+        end_date: конечная дата
+        """
+        checklists = list(self.collection.find({
+            "created_at": {
+                "$gte": start_date,
+                "$lte": end_date
+            }
+        }))
+
+        for checklist in checklists:
+            checklist["_id"] = str(checklist["_id"])
+
+        return checklists
+
     async def get_by_area(self, area: int) -> list:
         """
         Получает все чек-листы для определённой области
