@@ -1,14 +1,15 @@
 from io import BytesIO
 
+import pandas as pd
 from aiogram import Router, F
-from aiogram.types import Message, CallbackQuery
 from aiogram.fsm.context import FSMContext
 from aiogram.fsm.state import State, StatesGroup
-import pandas as pd
+from aiogram.types import Message, CallbackQuery
 
 from src.bot.admin_panel.admin_kb import admin_panel_kb
 
 router = Router()
+
 
 class CheckListForm(StatesGroup):
     waiting_for_file = State()
@@ -53,7 +54,20 @@ async def process_excel_file(message: Message, state: FSMContext):
     )
     await message.answer("Вы в главном меню", reply_markup=admin_panel_kb())
 
-    print(await process_checklist_file(message.bot, file_info)) # Сделать занос в бд чек-листа
+    # try:
+    #     checklist_data = await process_checklist_file(message.bot, file_info)
+    #     checklist_repo = CheckListRepository(mongo_db)
+    #
+    #     result = await checklist_repo.add_checklist({
+    #         "name": None,
+    #         "area": None,
+    #         "items": [{
+    #             "type": None,
+    #             "order":
+    #         }],
+    #     })
+
+    print(await process_checklist_file(message.bot, file_info))  # Сделать занос в бд чек-листа
 
     await state.clear()
 
