@@ -47,6 +47,7 @@ class UserRepository:
             (User.id == id)
         )
 
+
         result = await session.execute(stmt)
         exists = result.scalar_one_or_none()
 
