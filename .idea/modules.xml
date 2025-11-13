@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+<<<<<<< HEAD
+      <module fileurl="file://$PROJECT_DIR$/.idea/Хакатун 2025 PIB.iml" filepath="$PROJECT_DIR$/.idea/Хакатун 2025 PIB.iml" />
+=======
+      <module fileurl="file://$PROJECT_DIR$/.idea/hacaton.iml" filepath="$PROJECT_DIR$/.idea/hacaton.iml" />
+>>>>>>> 2f2b1c3f2b2630e0770971bcec23f23b28abfc10
+    </modules>
+  </component>
+</project>
