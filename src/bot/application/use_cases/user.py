@@ -1,3 +1,4 @@
+from hackathon_bot.src.bot.main.admin_panel.admin_kb import admin_panel_kb
 from src.bot.main.keyboards.keyboards import get_admin_kb, get_inspector_kb, get_user_kb
 from src.bot.domain.entities.user import User
 from src.bot.infrastructure.db.postgra_client import postgra_session
@@ -23,7 +24,7 @@ class UserUseCases():
             if user_role == 'admin':
                 await message.answer(
                     f"{welcome_text} Администратор", 
-                    reply_markup=get_admin_kb()
+                    reply_markup=admin_panel_kb()
                 )
             elif user_role == 'checker':
                 await message.answer(
